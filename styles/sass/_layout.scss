@@ -1,0 +1,146 @@
+@use './abstracts' as *;
+
+.l-flex {
+    display: flex;
+    width: pxCon(780, rem);
+    height: pxCon(300, rem);
+
+    @include respond-to(medium-3) {
+        flex-direction: column;
+        height: auto;
+        width: pxCon(348, rem);
+    }
+
+    @include respond-to(small) {
+        width: pxCon(267, rem);
+    }
+
+    &-top__item {
+            width: pxCon(850, rem); /*first set width to 100%, why? */
+            border-radius: 0.5rem 0 0 0.5rem;
+
+            @include respond-to(medium-3) {
+                width: 100%;
+                height: pxCon(230, rem);
+                border-radius: 0.5rem 0.5rem 0 0;
+            }
+
+            @include respond-to(small) {
+                height: pxCon(200, rem);
+            }
+    }
+
+    &-btm {
+        &__profile {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            @include respond-to(medium-3) {
+                padding: 1rem 2rem;
+            }
+
+            img[src*=michelle] {
+                width: 2.6rem;
+                border-radius: 50%;
+
+                @include respond-to(small) {
+                    width: 2.3rem;
+                }
+            }
+        }
+
+        // @include respond-to(medium-3) {
+        //     position: relative;
+        // }
+
+        &__item {
+            margin: 2.1rem 2.3rem;
+
+            @include respond-to(medium-3) {
+                margin: 0;
+            }
+        }
+
+        &__title {
+            margin-bottom: .7rem;
+
+            @include respond-to(medium-3) {
+                margin: 1rem 2.3rem;
+            } 
+
+            @include respond-to(small) {
+                margin: 1rem 1.3rem;
+            }
+        }
+
+        &__txt {
+            margin-bottom: 1.2rem;
+
+            @include respond-to(medium-3) {
+                margin: 0 2.3rem 1.5rem;
+            }
+
+            @include respond-to(small) {
+                margin: 1rem 1.3rem;
+            }
+        }
+
+        &__info {
+            margin-left: 1rem;
+
+            @include respond-to(medium-3) {
+                position: relative;
+            }
+        }
+        &__share {
+            margin-left: auto;
+            padding: 0.7rem;
+            border-radius: 50%;
+
+            @include respond-to(medium-3) {
+                z-index: 10000;
+            }
+        }
+    }
+}
+
+
+.icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: absolute;
+    left: 16rem;
+    top: -5rem;
+
+    @include respond-to(medium-1) {
+        left: 14rem;
+    }
+    
+    @include respond-to(medium-2) {
+        left: 11rem;
+    }
+
+    @include respond-to(medium-3) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border-radius: 0 0 .5rem .5rem;
+        padding: 2rem 3.2rem;
+        justify-content: flex-start;
+    }
+
+    @include respond-to(small) {
+        padding: 2rem 1rem;
+    }
+    
+    img {
+        width: 1.2rem;
+        margin-left: 1rem;
+    }
+}
+

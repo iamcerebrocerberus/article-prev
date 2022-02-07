@@ -1,0 +1,88 @@
+@use './abstracts' as *;
+
+.c-card {
+    border-radius: 0.5rem;
+    background: map-get($colors, card-cont-cl);
+    // overflow: hidden;
+
+    &__top {
+        background: url("../../images/drawers.jpg");
+        background-size: cover;
+    }
+    
+    &__title {
+        font-size: 1.36rem;
+        color: map-get($colors, card-head-cl);
+        line-height: 1.4;
+
+        @include respond-to(medium-3) {
+            font-size: 1.09rem;
+        }
+    }
+
+    &__txt {
+        color: map-get($colors, card-txt-cl);
+        font-size: 0.89rem;
+
+        @include respond-to(medium-3) {
+            font-size: 0.87rem;
+        }
+    }
+
+    &__info {
+        font-size: .9rem;
+    }
+    &__name {
+        color: map-get($colors, prof-name-cl);
+
+        @include respond-to(small) {
+            font-size: .76rem;
+        }
+    }
+
+    &__date {
+        color: map-get($colors, prof-date-cl);
+
+        @include respond-to(small) {
+            font-size: .76rem;
+        }
+    }
+
+    &__share {
+        background: map-get($colors, share-color);
+    }
+}
+
+
+.icons-container {
+    background: map-get($colors, icon-container);
+    border-radius: .5rem;
+
+    .share {
+        color: map-get($colors, share-txt-cl);
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+    }
+
+    &::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        background: map-get($colors, card-head-cl);
+        position: absolute;
+        bottom: -.5rem;
+        transform: rotate(225deg);
+
+        @include respond-to(medium-1) {
+            left: 9.2rem;
+        }
+
+        @include respond-to(medium-2) {
+            left: 12.2rem;
+        }
+        @include respond-to(medium-3) {
+            display: none;
+        }
+    }
+}
+

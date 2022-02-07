@@ -1,0 +1,49 @@
+/*colors*/
+$colors: (
+    "body-bg-cl": hsl(210, 46%, 95%),
+    "card-cont-cl": hsl(0, 0%, 100%),
+    "card-head-cl": hsl(217, 19%, 35%),
+    "card-txt-cl": hsl(214, 17%, 51%),
+    "prof-name-cl": hsl(217, 19%, 35%),
+    "prof-date-cl": hsl(212, 23%, 69%),
+    "share-color": hsl(210, 46%, 95%),
+    "icon-container": hsl(217, 19%, 35%),
+    "share-txt-cl": hsl(212, 23%, 69%)
+);
+
+/*breakpoints*/
+$breakpoints: (
+    "medium-1": '58.866em',
+    "medium-2": '54.6em',
+    "medium-3": '50.6em',
+    "small": '22.7333em'
+);
+
+
+/*function
+px convertor to rem and em*/
+@use "sass:meta";
+@use "sass:math";
+@function pxCon($pxValue, $unitVal) {
+    $rem: 'rem';
+    $em: 'em';
+    $conValue : 0;
+    @if (meta.type-of($pxValue) != 'number') {
+        @error "first arg must be number and not #{meta.type-of($pxValue)}";
+    } @else if ($unitVal != $rem and $unitVal != $em) {
+        @error "second arg must be 'rem' or 'em' not #{meta.type-of($unitVal)}";
+    } @else {
+        $conValue: #{math.div($pxValue, 16)}+$unitVal;
+    }
+    @return $conValue;
+}
+
+
+/*mixin
+media query*/
+@mixin respond-to($breakpnt) {
+    $breakpnt: map-get($breakpoints, $breakpnt);
+    @media screen and (max-width: $breakpnt) {
+        @content;
+    }
+}

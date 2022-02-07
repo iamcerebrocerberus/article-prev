@@ -1,0 +1,14 @@
+@use './abstracts' as *;
+@use 'sass:map';
+
+.share-btn-updt {
+    background: map-get($colors, card-txt-cl) !important;
+}
+
+.has-chng {
+    filter: brightness(0) invert(1) !important;
+}
+
+.is-hidden {
+    display: none !important;
+}
